@@ -1,0 +1,42 @@
+{
+  "name": "frameleap-mcp",
+  "version": "0.1.12",
+  "description": "FrameLeap Studio（臻跃）MCP 转发程序：让 Claude Code、Codex、Cursor 等 AI 助手调用 FrameLeap 出片（本机桌面版或云端版）",
+  "type": "module",
+  "bin": {
+    "frameleap-mcp": "bin/frameleap-mcp.mjs"
+  },
+  "files": [
+    "bin/",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "frameleap",
+    "video",
+    "ai-video",
+    "claude",
+    "codex",
+    "cursor",
+    "臻跃"
+  ],
+  "homepage": "https://github.com/QianqianTech/frameleap#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QianqianTech/frameleap.git",
+    "directory": "packages/frameleap-mcp"
+  },
+  "bugs": "https://github.com/QianqianTech/frameleap/issues",
+  "license": "Apache-2.0",
+  "author": "贵阳黔前科技有限公司 <https://www.qianqianai.com>",
+  "mcpName": "io.github.qianqiantech/frameleap"
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "frameleap-client/1",
+  "id": "codeneo",
+  "label": "CodeNeo",
+  "vendor": "CodeNeo",
+  "kind": "IDE",
+  "detect": ["~/.codeneo", "/Applications/CodeNeo.app"],
+  "clis": ["codeneo"],
+  "mcp": {
+    "file": "~/.codeneo/mcp.json",
+    "key": "mcpServers",
+    "when": "always",
+    "entry": { "type": "stdio", "command": "{command}", "args": [] }
+  },
+  "skill": { "dir": "~/.codeneo/skills", "upload": false },
+  "restart": "重启 CodeNeo 后生效",
+  "note": "示例：路径按 CodeNeo 实际的 MCP 配置和技能目录修改；有命令行或安装链接时补上 mcp.cli / mcp.cli_add / mcp.deeplink。"
+}

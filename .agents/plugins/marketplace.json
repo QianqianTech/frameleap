@@ -1,0 +1,17 @@
+{
+  "name": "frameleap",
+  "plugins": [
+    {
+      "name": "frameleap",
+      "source": {
+        "source": "local",
+        "path": "./plugins/codex"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "NONE"
+      },
+      "category": "Media"
+    }
+  ]
+}

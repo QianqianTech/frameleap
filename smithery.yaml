@@ -1,0 +1,18 @@
+# Smithery 收录（https://smithery.ai）：用户填云端地址和 Key 后，以 stdio 方式运行转发程序
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      frameleapUrl:
+        type: string
+        description: FrameLeap 云端 / 私有化地址（如 https://frameleap.example.com）；留空则连本机桌面版
+      apiKey:
+        type: string
+        description: 工作区 API Key（fl_…），云端需要
+  commandFunction: |-
+    (config) => ({ command: 'npx', args: ['-y', 'frameleap-mcp'],
+      env: { FRAMELEAP_URL: config.frameleapUrl || '', FRAMELEAP_API_KEY: config.apiKey || '' } })
+  exampleConfig:
+    frameleapUrl: https://frameleap.example.com
+    apiKey: fl_xxxxxxxx

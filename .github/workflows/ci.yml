@@ -1,0 +1,29 @@
+name: CI
+on:
+  push: {branches: [main]}
+  pull_request:
+permissions: {contents: read}
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix: {os: [ubuntu-latest, macos-latest, windows-latest], node: ["18", "22"]}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: "${{ matrix.node }}"}
+      - name: 转发程序测试
+        working-directory: packages/frameleap-mcp
+        run: npm test
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - name: 适配文件校验（规则与 FrameLeap 导入时一致）
+        run: python3 scripts/validate_adapter.py --all
+      - name: JSON 文件都能解析、版本号一致
+        run: python3 scripts/check_repo.py
+      - name: 文档站构建
+        run: pip install "mkdocs-material>=9,<10" && mkdocs build --strict

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "frameleap": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "frameleap-mcp"
+      ]
+    }
+  }
+}

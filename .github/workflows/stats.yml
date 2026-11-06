@@ -1,0 +1,16 @@
+name: Stats
+# 每周一统计 npm 下载量和 GitHub Star（O-09），写进 stats/history.csv
+on:
+  schedule: [{cron: "17 1 * * 1"}]
+  workflow_dispatch:
+permissions: {contents: write}
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/stats.py
+        env: {GITHUB_TOKEN: "${{ github.token }}"}
+      - run: |
+          git config user.name "frameleap-bot" && git config user.email "bot@users.noreply.github.com"
+          git add stats/history.csv && git commit -m "stats: $(date +%F)" && git push || echo "无变化"

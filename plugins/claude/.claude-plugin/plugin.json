@@ -1,0 +1,19 @@
+{
+  "name": "frameleap",
+  "version": "0.1.12",
+  "description": "调用 FrameLeap Studio（本机桌面版或云端）（臻跃）出片：口播后期、每日资讯、软件演示、AI 生图成片、产品图解、热点解读、AI 视频，以及多平台发布。",
+  "author": {
+    "name": "贵阳黔前科技有限公司",
+    "url": "https://www.qianqianai.com"
+  },
+  "keywords": [
+    "video",
+    "frameleap",
+    "臻跃",
+    "frameleap",
+    "视频",
+    "剪辑",
+    "出片",
+    "发布"
+  ]
+}

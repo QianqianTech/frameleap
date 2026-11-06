@@ -1,0 +1,14 @@
+{
+  "name": "frameleap",
+  "owner": {
+    "name": "贵阳黔前科技有限公司",
+    "url": "https://www.qianqianai.com"
+  },
+  "plugins": [
+    {
+      "name": "frameleap",
+      "source": "./plugins/claude",
+      "description": "调用本机 FrameLeap Studio（臻跃）出片与发布"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+name: 提交客户端适配文件
+description: 让一个新的 AI 软件支持 FrameLeap 一键接入（也可以直接开 PR 放进 adapters/）
+title: "[适配] <软件名>"
+labels: [adapter]
+body:
+  - type: input
+    id: name
+    attributes: {label: 软件名称与官网, placeholder: "CodeNeo · https://…"}
+    validations: {required: true}
+  - type: dropdown
+    id: role
+    attributes: {label: 你是, options: [该软件的开发者 / 厂商, 用户]}
+    validations: {required: true}
+  - type: textarea
+    id: adapter
+    attributes: {label: 适配文件（frameleap-client/1 JSON）, render: json, description: "先用 python3 scripts/validate_adapter.py 校验通过"}
+    validations: {required: true}
+  - type: input
+    id: docs
+    attributes: {label: MCP 配置位置的官方文档链接, placeholder: "https://…"}
+    validations: {required: true}
+  - type: checkboxes
+    id: tested
+    attributes:
+      label: 实测过的系统
+      options: [{label: macOS}, {label: Windows}, {label: Linux}]
+  - type: textarea
+    id: notes
+    attributes: {label: 补充说明（重启方式、Skill 目录、命令行 / 安装链接）}

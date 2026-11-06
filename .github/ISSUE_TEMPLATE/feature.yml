@@ -1,0 +1,8 @@
+name: 功能建议
+description: 想让 AI 助手通过 FrameLeap 做什么
+labels: [enhancement]
+body:
+  - type: textarea
+    id: want
+    attributes: {label: 你想对 AI 助手说什么、期望得到什么}
+    validations: {required: true}

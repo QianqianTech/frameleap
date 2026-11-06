@@ -1,0 +1,8 @@
+# 更新记录
+
+## 0.1.12
+
+- 远程 MCP：云端 / 私有化地址 `https://<域名>/mcp`，支持登录授权（OAuth 2.1）和 API Key
+- 新转发程序 `npx -y frameleap-mcp`：自动连本机桌面版，或连云端地址
+- 新工具 `fl_upload`（远程上传原片）；`fl_get_outputs` 远程返回带时效的下载链接
+- 客户端适配文件规范 `frameleap-client/1` 与校验脚本；CodeNeo 示例

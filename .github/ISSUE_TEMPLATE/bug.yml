@@ -1,0 +1,16 @@
+name: 问题反馈
+description: 接入失败、工具报错、文档不对
+labels: [bug]
+body:
+  - type: input
+    id: client
+    attributes: {label: AI 助手和版本, placeholder: "Claude Code 2.x / Cursor 1.x …"}
+    validations: {required: true}
+  - type: dropdown
+    id: mode
+    attributes: {label: 连接方式, options: [本机桌面版一键接入, npx frameleap-mcp, 云端远程地址（登录授权）, 云端远程地址（API Key）]}
+    validations: {required: true}
+  - type: textarea
+    id: what
+    attributes: {label: 发生了什么, description: "附上 npx -y frameleap-mcp --check 的输出（会隐藏 Key）和工具返回的错误"}
+    validations: {required: true}

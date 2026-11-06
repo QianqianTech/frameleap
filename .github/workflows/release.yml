@@ -1,0 +1,35 @@
+name: Release
+# 打 tag（v<版本>，与 FrameLeap 主程序版本一致）即发布：npm 包、GitHub Release（插件 / Skill 压缩包）、MCP 官方目录
+on:
+  push: {tags: ["v*"]}
+permissions: {contents: write, id-token: write}
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: "22", registry-url: "https://registry.npmjs.org"}
+      - name: 版本号检查
+        run: python3 scripts/check_repo.py --tag "${GITHUB_REF_NAME#v}"
+      - name: 测试
+        working-directory: packages/frameleap-mcp
+        run: npm test
+      - name: 发布 npm
+        working-directory: packages/frameleap-mcp
+        run: npm publish --provenance --access public
+        env: {NODE_AUTH_TOKEN: "${{ secrets.NPM_TOKEN }}"}
+      - name: 打包插件与 Skill
+        run: |
+          mkdir -p out
+          (cd plugins && zip -qr ../out/frameleap-claude-plugin.zip claude && zip -qr ../out/frameleap-codex-plugin.zip codex)
+          (cd skills && zip -qr ../out/frameleap-video-skill.zip frameleap-video)
+          (cd out && sha256sum *.zip > SHA256SUMS.txt)
+      - name: GitHub Release
+        run: gh release create "$GITHUB_REF_NAME" out/* --title "FrameLeap Connect $GITHUB_REF_NAME" --notes-file CHANGELOG.md
+        env: {GH_TOKEN: "${{ github.token }}"}
+      - name: MCP 官方目录
+        if: ${{ vars.MCP_PUBLISH == '1' }}
+        run: |
+          curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_linux_amd64.tar.gz" | tar xz mcp-publisher
+          ./mcp-publisher login github-oidc && ./mcp-publisher publish

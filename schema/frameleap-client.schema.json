@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://frameleap.local/schemas/frameleap-client-1.json",
+  "title": "FrameLeap 客户端适配文件（frameleap-client/1）",
+  "description": "描述一个 AI 客户端如何接入 FrameLeap Studio（臻跃）的 MCP 服务与 Skill。见 integrations/vendor-guide.md。",
+  "type": "object",
+  "required": ["id", "label"],
+  "additionalProperties": true,
+  "properties": {
+    "schema": { "const": "frameleap-client/1" },
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9_-]{1,39}$" },
+    "label": { "type": "string", "minLength": 1, "maxLength": 40 },
+    "vendor": { "type": "string", "maxLength": 40 },
+    "kind": { "type": "string", "maxLength": 20 },
+    "detect": { "type": "array", "maxItems": 8, "items": { "type": "string", "pattern": "^(~/|/Applications/)" } },
+    "clis": { "type": "array", "maxItems": 4, "items": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$" } },
+    "mcp": {
+      "type": "object",
+      "properties": {
+        "file": { "type": "string", "pattern": "^~/.*\\.jsonc?$" },
+        "key": { "type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]{0,40}$", "default": "mcpServers" },
+        "when": { "enum": ["always", "dir", "file"], "default": "always" },
+        "entry": { "type": "object", "description": "一条服务的写法，用 {command} 代表 FrameLeap 启动命令", "default": { "command": "{command}", "args": [] } },
+        "cli": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$" },
+        "cli_add": { "type": "array", "minItems": 2, "maxItems": 16, "items": { "type": "string", "maxLength": 80 }, "prefixItems": [{ "const": "{cli}" }] },
+        "deeplink": { "type": "string", "pattern": "^[a-z][a-z0-9+.-]{1,30}://", "maxLength": 500 }
+      }
+    },
+    "skill": {
+      "type": "object",
+      "properties": {
+        "dir": { "type": "string", "pattern": "^~/" },
+        "upload": { "type": "boolean", "default": false }
+      }
+    },
+    "restart": { "type": "string", "maxLength": 120 },
+    "note": { "type": "string", "maxLength": 300 },
+    "docs": { "type": "string", "pattern": "^https://" }
+  }
+}

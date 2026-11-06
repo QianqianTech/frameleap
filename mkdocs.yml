@@ -1,0 +1,21 @@
+site_name: FrameLeap Connect · 臻跃 接入文档
+site_url: https://qianqiantech.github.io/frameleap/
+repo_url: https://github.com/QianqianTech/frameleap
+copyright: © 2026 贵阳黔前科技有限公司 · 臻跃 / FrameLeap 是贵阳黔前科技有限公司的商标
+theme:
+  name: material
+  language: zh
+  palette:
+    - {scheme: default, primary: deep purple, toggle: {icon: material/weather-night, name: 深色}}
+    - {scheme: slate, primary: deep purple, toggle: {icon: material/weather-sunny, name: 浅色}}
+nav:
+  - 首页: index.md
+  - 快速开始: quickstart.md
+  - 各客户端接入: clients/index.md
+  - 云端 / 远程接入: remote.md
+  - 工具参考: tools.md
+  - 适配文件规范: adapters.md
+  - 厂商对接指南: vendor-guide.md
+  - 发布渠道: listings.md
+  - 常见问题: faq.md
+markdown_extensions: [tables, admonition, toc]
