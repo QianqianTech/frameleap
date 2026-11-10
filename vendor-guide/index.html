@@ -1,0 +1,1711 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://qianqiantech.github.io/frameleap/vendor-guide/">
+      
+      
+        <link rel="prev" href="../adapters/">
+      
+      
+        <link rel="next" href="../listings/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>厂商对接指南 - FrameLeap Connect · 臻悦 接入文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#frameleap-studio-frameleap-codeneo-ai" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="FrameLeap Connect · 臻悦 接入文档" class="md-header__button md-logo" aria-label="FrameLeap Connect · 臻悦 接入文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FrameLeap Connect · 臻悦 接入文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              厂商对接指南
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo"  aria-label="深色"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="深色" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="indigo"  aria-label="浅色"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="浅色" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/QianqianTech/frameleap" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="FrameLeap Connect · 臻悦 接入文档" class="md-nav__button md-logo" aria-label="FrameLeap Connect · 臻悦 接入文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FrameLeap Connect · 臻悦 接入文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/QianqianTech/frameleap" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    快速开始
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../clients/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    各客户端接入
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../remote/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    云端 / 远程接入
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具参考
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adapters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    适配文件规范
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    厂商对接指南
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    厂商对接指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 一句话版本
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 对接方式总览
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-frameleap-configframeleapserverjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 找到 FrameLeap：发现文件 ~/.config/frameleap/server.json
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. MCP 服务说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. MCP 服务说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 传输与协议
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 工具（26 个，按角色开放）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 任务编号和状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 返回格式与错误
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 超时建议
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 必须遵守的交互规则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        远程 MCP（云端 / 私有化 / 本机 HTTP）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-frameleap-frameleap-client1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 让 FrameLeap 认识你：客户端适配文件（frameleap-client/1）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 让 FrameLeap 认识你：客户端适配文件（frameleap-client/1）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 放在哪里
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 格式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-frameleap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 FrameLeap 一键接入时做什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-frameleap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 安全限制（FrameLeap 会拒绝不合格的适配文件）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-skillframeleap-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Skill：frameleap-video
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-mcp-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 不用 MCP 时：HTTP 接口
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 限额与来源
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 联调清单
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 联系与版本
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../listings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    发布渠道
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    常见问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. 一句话版本
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 对接方式总览
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-frameleap-configframeleapserverjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 找到 FrameLeap：发现文件 ~/.config/frameleap/server.json
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. MCP 服务说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. MCP 服务说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 传输与协议
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 工具（26 个，按角色开放）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 任务编号和状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 返回格式与错误
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 超时建议
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 必须遵守的交互规则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        远程 MCP（云端 / 私有化 / 本机 HTTP）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-frameleap-frameleap-client1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 让 FrameLeap 认识你：客户端适配文件（frameleap-client/1）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 让 FrameLeap 认识你：客户端适配文件（frameleap-client/1）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 放在哪里
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 格式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-frameleap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 FrameLeap 一键接入时做什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-frameleap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 安全限制（FrameLeap 会拒绝不合格的适配文件）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-skillframeleap-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Skill：frameleap-video
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-mcp-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 不用 MCP 时：HTTP 接口
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 限额与来源
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 联调清单
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 联系与版本
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="frameleap-studio-frameleap-codeneo-ai">FrameLeap Studio（臻悦，命令行 frameleap）对接指南 · 给 CodeNeo 及其它 AI 客户端</h1>
+<p>版本：frameleap-client/1 · frameleap-server/1（2026-11）
+读者：CodeNeo 等 AI 编程 / 智能体软件的开发者。
+目标：用户装了 FrameLeap 之后，在你的软件里一句话就能让 FrameLeap 出片、审片、拿成片、发布，<strong>不需要手动改任何配置</strong>。</p>
+<hr />
+<h2 id="0">0. 一句话版本</h2>
+<ol>
+<li><strong>找到 FrameLeap</strong>：读 <code>~/.config/frameleap/server.json</code>，里面有 MCP 启动命令。</li>
+<li><strong>连上 FrameLeap</strong>：按 MCP 标准（stdio）启动这条命令，就能拿到 15 个 <code>fl_*</code> 工具。</li>
+<li><strong>让 FrameLeap 认识你</strong>：把一份适配文件放进 <code>~/.config/frameleap/clients/codeneo.json</code>。FrameLeap 的「设置 › 接入 AI 助手」里，CodeNeo 会从“待对接”变成“一键接入”。</li>
+<li>（推荐）<strong>加载 Skill</strong>：把 <code>frameleap-video</code> 这个 Skill 装进你的技能目录，模型会更懂怎么用这些工具。</li>
+</ol>
+<p>做到第 2 步就能用。第 3、4 步让体验做到“无缝”。</p>
+<hr />
+<h2 id="1">1. 对接方式总览</h2>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>谁来做</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A. 你的软件读 FrameLeap 发现文件，自动添加 MCP 服务</td>
+<td>CodeNeo</td>
+<td>用户什么都不用做（<strong>推荐</strong>）</td>
+</tr>
+<tr>
+<td>B. 你提供适配文件，FrameLeap 一键把自己写进你的配置</td>
+<td>CodeNeo 给文件，FrameLeap 来写</td>
+<td>用户在 FrameLeap 里点一下</td>
+</tr>
+<tr>
+<td>C. 用户在 FrameLeap 里导入适配文件</td>
+<td>用户</td>
+<td>适配文件没随软件分发时用</td>
+</tr>
+<tr>
+<td>D. 不用 MCP，直接调 HTTP 接口</td>
+<td>CodeNeo</td>
+<td>只适合没有 MCP 能力的场景</td>
+</tr>
+</tbody>
+</table>
+<p>A 和 B 可以同时做；FrameLeap 不会重复注册（按服务名 <code>frameleap</code> 去重）。</p>
+<hr />
+<h2 id="2-frameleap-configframeleapserverjson">2. 找到 FrameLeap：发现文件 <code>~/.config/frameleap/server.json</code></h2>
+<p>FrameLeap 在本机运行时（桌面版或 <code>frameleap serve</code>），收到第一个请求就会写这个文件；端口变了会重写。云端多租户部署不写。</p>
+<pre><code class="language-json">{
+  &quot;schema&quot;: &quot;frameleap-server/1&quot;,
+  &quot;name&quot;: &quot;FrameLeap Studio&quot;,
+  &quot;version&quot;: &quot;0.1.16&quot;,
+  &quot;url&quot;: &quot;http://127.0.0.1:17860&quot;,
+  &quot;mcp&quot;: { &quot;name&quot;: &quot;frameleap&quot;, &quot;transport&quot;: &quot;stdio&quot;, &quot;command&quot;: &quot;/…/integrations/bin/frameleap-mcp&quot;, &quot;args&quot;: [] },
+  &quot;mcpServers&quot;: { &quot;frameleap&quot;: { &quot;command&quot;: &quot;/…/integrations/bin/frameleap-mcp&quot;, &quot;args&quot;: [] } },
+  &quot;skill&quot;: { &quot;name&quot;: &quot;frameleap-video&quot;, &quot;dir&quot;: &quot;/…/integrations/skills/frameleap-video&quot;,
+             &quot;zip_url&quot;: &quot;http://127.0.0.1:17860/api/integrations/skill.zip&quot; },
+  &quot;adapters_dir&quot;: &quot;~/.config/frameleap/clients&quot;,
+  &quot;guide_url&quot;: &quot;http://127.0.0.1:17860/api/integrations/guide&quot;,
+  &quot;updated&quot;: 1793930000,
+  &quot;pid&quot;: 12345
+}
+</code></pre>
+<p>建议的做法：</p>
+<ul>
+<li>启动时（或用户打开 MCP 设置页时）检查这个文件是否存在。</li>
+<li>存在：在你的 MCP 列表里提示“发现 FrameLeap Studio（臻悦），是否连接？”，同意后把 <code>mcpServers.frameleap</code> 合并进你的配置。</li>
+<li><code>mcp.command</code> 是一个启动脚本，它自己会找到 FrameLeap（开发目录或桌面版内置后端）。<strong>FrameLeap 服务没开着时它也能启动</strong>，此时工具调用会返回“FrameLeap 没在运行”的提示，不会崩溃。</li>
+<li>文件不存在：说明用户没装 FrameLeap，或者 FrameLeap 还没启动过，不要报错。</li>
+</ul>
+<hr />
+<h2 id="3-mcp">3. MCP 服务说明</h2>
+<h3 id="31">3.1 传输与协议</h3>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传输</td>
+<td>stdio，一行一条 JSON-RPC 2.0 消息（标准 MCP）</td>
+</tr>
+<tr>
+<td>协议版本</td>
+<td>2025-11-25 / 2025-06-18 / 2025-03-26 / 2024-11-05，按客户端请求协商，不认识的回落到 2025-06-18</td>
+</tr>
+<tr>
+<td>能力</td>
+<td><code>tools</code>、<code>resources</code>（不支持订阅）；长任务用 <code>notifications/progress</code> 报进度；支持 <code>notifications/cancelled</code></td>
+</tr>
+<tr>
+<td>服务名</td>
+<td><code>frameleap</code>（请用这个名字注册，便于双方去重）</td>
+</tr>
+<tr>
+<td>clientInfo.name</td>
+<td>请填 <code>codeneo</code>（或含 <code>codeneo</code> 的名字）：FrameLeap 会显示“来自 CodeNeo”，并按它统计调用与限额</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>无第三方依赖；启动约 1 秒</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-26">3.2 工具（26 个，按角色开放）</h3>
+<p>带 * 的是必填参数。</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>用途</th>
+<th>参数</th>
+<th>只读</th>
+<th>有破坏性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fl_create_video</code></td>
+<td><strong>首选入口</strong>。传用户原话，FrameLeap 自动选模式（口播后期 / 每日资讯 / 软件演示 / AI 生图成片 / 产品图解 / 热点解读 / AI 视频）。信息不够时返回问题，带 <code>session_id</code> 继续</td>
+<td>request*, session_id, source, sources, platforms, approval, start, skill</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>fl_edit_video</code></td>
+<td>口播素材后期（参数明确时）</td>
+<td>source*, platforms, title, style_hint, script, bgm, remove_fillers, speaker_name, speaker_title, template, approval</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>fl_start_studio</code></td>
+<td>按模式启动智能出片或先生成确认单</td>
+<td>kind, params, template, name, approval, start, idempotency_key</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>fl_plan</code></td>
+<td>管理确认单、每日资讯候选和提交回执</td>
+<td>action<em>, plan_id</em>, revision, patch, preview_id, news_ids</td>
+<td>视操作</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>fl_storyboard</code></td>
+<td>读取、修改和按版本提交产品图解分镜</td>
+<td>action<em>, draft_id</em>, revision, patch</td>
+<td>视操作</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>fl_list_tasks</code></td>
+<td>任务列表（含来源）</td>
+<td>limit, phase, state, type</td>
+<td>是</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>fl_get_task</code></td>
+<td>任务详情、制作过程、待确认内容</td>
+<td>task_id*, events</td>
+<td>是</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>fl_wait_task</code></td>
+<td>等任务推进；默认最多 45 秒，最长 300 秒，期间发进度</td>
+<td>task_id*, timeout_s</td>
+<td>是</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>fl_reply</code></td>
+<td>对任务说话：“通过”、修改意见、“重试”</td>
+<td>task_id<em>, text</em></td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>fl_cancel_task</code></td>
+<td>取消任务</td>
+<td>task_id*</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td><code>fl_task_action</code></td>
+<td>审片、复核、交付和续跑</td>
+<td>action<em>, task_id</em>, review_revision, media_revision, artifact, checks, note</td>
+<td>视操作</td>
+<td>视操作</td>
+</tr>
+<tr>
+<td><code>fl_get_outputs</code></td>
+<td>成片、预览、封面和字幕的清单及链接</td>
+<td>task_id*, include_previews, download_to, videos_only</td>
+<td>视操作</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>fl_catalog</code></td>
+<td>模式、模板、音色、平台、发布账号、字幕风格和能力</td>
+<td>what</td>
+<td>是</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>fl_publish</code></td>
+<td>发布到平台。<strong>两步</strong>：先返回预览和 <code>confirm_token</code>，用户同意后再带令牌调用</td>
+<td>task_id<em>, targets</em>, title, description, tags, at, confirm_token</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td><code>fl_publications</code></td>
+<td>查询平台接收、排期、发布和失败记录</td>
+<td>task_id, publication_id, status, platform, limit</td>
+<td>是</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>fl_segments</code></td>
+<td>成片分段</td>
+<td>task_id*</td>
+<td>是</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>fl_segment_edit</code></td>
+<td>只改选中的几段：先出方案，同意后带 <code>plan_id</code> 执行</td>
+<td>task_id*, segment_ids, request, mode, plan_id</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>fl_redub</code></td>
+<td>只重新配音 / 换声音，不重做整条视频</td>
+<td>task_id*, voice, voice_name, voice_target, speed, dry_run</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>fl_template</code></td>
+<td>查找模板、查看版本及填空、预检出片方案、从验收作品保存、新建和导出对接包</td>
+<td>action*, template_id, version, task_id, inputs, name, template, keyword, mode, mine, limit, dry_run, lang, save_dir, link_days</td>
+<td>视操作</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>fl_assets</code></td>
+<td>查询、查看和保存工作区素材</td>
+<td>action*, asset_ref, keyword, scope, kind, page, limit</td>
+<td>视操作</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>fl_automation</code></td>
+<td>栏目预览、试跑、启用、暂停和创建方案</td>
+<td>action*, operation, channel_id, config, topic</td>
+<td>视操作</td>
+<td>视操作</td>
+</tr>
+<tr>
+<td><code>fl_upload</code></td>
+<td>远程（云端）连接时上传原片：返回上传页面和 curl 命令，传完拿 <code>source</code></td>
+<td>action, name, upload_id</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td><code>fl_skills</code></td>
+<td>列出本工作区 AI 助手里能用的技能（名字、说明、版本）；出片时把技能名填进 <code>fl_create_video</code> 的 <code>skill</code> 参数</td>
+<td>keyword</td>
+<td>是</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>fl_status</code></td>
+<td>服务和 Key 检查、接入策略</td>
+<td>deep</td>
+<td>是</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>fl_capabilities</code></td>
+<td>查询原生操作、参数和授权要求</td>
+<td>group, q, operation_id, offset, limit, include_unavailable</td>
+<td>是</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>fl_invoke</code></td>
+<td>执行原生操作，确认方案和查询回执</td>
+<td>action, operation_id, arguments, plan_id, revision</td>
+<td>视操作</td>
+<td>视操作</td>
+</tr>
+</tbody>
+</table>
+<p>工具的完整参数说明以 <code>tools/list</code> 的返回为准（中文描述里写了“何时用 / 不该何时用”）。</p>
+<h3 id="33">3.3 任务编号和状态</h3>
+<ul>
+<li>编号：<code>job:&lt;id&gt;</code>（口播作业）或 <code>run:&lt;id&gt;</code>（智能出片）。</li>
+<li><code>phase</code> 只有五种：<code>running</code> / <code>needs_input</code>（等用户确认草稿或粗剪）/ <code>done</code> / <code>failed</code> / <code>cancelled</code>。</li>
+<li><code>state</code>、<code>lifecycle</code> 和 <code>next_action</code> 细分了等待素材、等待额度、阶段审片和成片复核。以当前 <code>review_revision</code> 或 <code>media_revision</code> 提交对应决定。</li>
+<li><code>fl_plan</code> 的 <code>confirm</code> 绑定方案版本。结果用同一账号和工作区读取。提交状态为 <code>submitting</code> 时保留方案编号，查询回执。</li>
+<li>资源：<code>frameleap://task/{task_id}</code>。<code>resources/list</code> 返回最近 20 个任务。</li>
+</ul>
+<h3 id="34">3.4 返回格式与错误</h3>
+<ul>
+<li>每个工具都返回：<code>content[0].text</code>（一句人话总结加 JSON），以及 <code>structuredContent</code>（同一个 JSON）。</li>
+<li>失败时 <code>isError: true</code>，<code>structuredContent = {error, code, hint}</code>。常见 <code>code</code>：</li>
+<li><code>not_running</code> / <code>unreachable</code>：FrameLeap 没开；</li>
+<li><code>unauthorized</code> / <code>forbidden</code>；</li>
+<li><code>not_found</code> / <code>bad_request</code> / <code>conflict</code>；</li>
+<li><code>rate_limited</code>（429，外部智能体的每日或并发上限）；</li>
+<li><code>server_error</code>。</li>
+<li><code>hint</code> 是给人看的下一步建议，可以直接展示给用户。</li>
+</ul>
+<h3 id="35">3.5 超时建议</h3>
+<p>出片要几分钟到十几分钟。请把 MCP 工具超时设为 <strong>≥ 60 秒</strong>（<code>fl_wait_task</code> 默认 45 秒就返回）。不要用短间隔循环调 <code>fl_get_task</code>，用 <code>fl_wait_task</code>。</p>
+<h3 id="36">3.6 必须遵守的交互规则</h3>
+<ul>
+<li>发布、取消、审片“通过”，都必须来自用户本人的明确意见。</li>
+<li><code>fl_publish</code> 第一次调用只出预览；把平台、账号、标题、文案给用户看，同意后再带 <code>confirm_token</code> 调用。</li>
+<li>返回 429 时，把原因告诉用户，不要重试绕过。上限由用户在 FrameLeap 的设置页里调。</li>
+</ul>
+<hr />
+<h3 id="mcp-http">远程 MCP（云端 / 私有化 / 本机 HTTP）</h3>
+<p>除了 stdio，FrameLeap 服务本身提供 Streamable HTTP 的远程 MCP：<code>&lt;服务地址&gt;/mcp</code>（本机桌面版是发现文件里的 <code>url</code> + <code>/mcp</code>）。
+- 云端需要鉴权：支持 MCP 授权规范（OAuth 2.1 + PKCE + 动态客户端注册，元数据在 <code>/.well-known/oauth-protected-resource/mcp</code>），
+  或请求头 <code>Authorization: Bearer fl_…</code>（工作区 API Key）；没带凭据返回 401 和 <code>WWW-Authenticate</code>。
+- 会话号在 <code>Mcp-Session-Id</code> 响应头里；进度通知走 SSE（请求头 <code>Accept: application/json, text/event-stream</code>）。
+- 只能启动本机命令的客户端可以用开源转发程序 <code>npx -y frameleap-mcp</code>（环境变量 <code>FRAMELEAP_URL</code>、<code>FRAMELEAP_API_KEY</code>）。</p>
+<h2 id="4-frameleap-frameleap-client1">4. 让 FrameLeap 认识你：客户端适配文件（frameleap-client/1）</h2>
+<h3 id="41">4.1 放在哪里</h3>
+<ul>
+<li><strong>自动发现（推荐）</strong>：你的安装程序或首次启动时写入 <code>~/.config/frameleap/clients/codeneo.json</code>。FrameLeap 每次打开设置页都会读取，不用用户导入。</li>
+<li><strong>用户导入</strong>：用户在 FrameLeap 的「设置 › 接入 AI 助手 › 导入客户端适配文件」里粘贴或选择文件。</li>
+<li>两处都有时，以用户导入的为准。</li>
+</ul>
+<h3 id="42">4.2 格式</h3>
+<p>JSON Schema：<code>integrations/frameleap-client.schema.json</code>。示例：<code>integrations/codeneo/frameleap-client.codeneo.json</code>。</p>
+<pre><code class="language-json">{
+  &quot;schema&quot;: &quot;frameleap-client/1&quot;,
+  &quot;id&quot;: &quot;codeneo&quot;,
+  &quot;label&quot;: &quot;CodeNeo&quot;,
+  &quot;vendor&quot;: &quot;CodeNeo&quot;,
+  &quot;kind&quot;: &quot;IDE&quot;,
+  &quot;detect&quot;: [&quot;~/.codeneo&quot;, &quot;/Applications/CodeNeo.app&quot;],
+  &quot;clis&quot;: [&quot;codeneo&quot;],
+  &quot;mcp&quot;: {
+    &quot;file&quot;: &quot;~/.codeneo/mcp.json&quot;,
+    &quot;key&quot;: &quot;mcpServers&quot;,
+    &quot;when&quot;: &quot;always&quot;,
+    &quot;entry&quot;: { &quot;type&quot;: &quot;stdio&quot;, &quot;command&quot;: &quot;{command}&quot;, &quot;args&quot;: [] },
+    &quot;cli&quot;: &quot;codeneo&quot;,
+    &quot;cli_add&quot;: [&quot;{cli}&quot;, &quot;mcp&quot;, &quot;add&quot;, &quot;{name}&quot;, &quot;--&quot;, &quot;{command}&quot;],
+    &quot;deeplink&quot;: &quot;codeneo://mcp/install?name={name}&amp;config={config_b64_url}&quot;
+  },
+  &quot;skill&quot;: { &quot;dir&quot;: &quot;~/.codeneo/skills&quot;, &quot;upload&quot;: false },
+  &quot;restart&quot;: &quot;重启 CodeNeo 后生效&quot;,
+  &quot;docs&quot;: &quot;https://…&quot;
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>小写字母开头，2–40 位，可用字母、数字、<code>-</code>、<code>_</code>。<code>codeneo</code> 会替换 FrameLeap 内置的“CodeNeo 待对接”条目；不能和其它内置客户端重名</td>
+</tr>
+<tr>
+<td><code>detect</code></td>
+<td>判断“本机已安装”的路径：<code>~/…</code> 或 <code>/Applications/….app</code></td>
+</tr>
+<tr>
+<td><code>clis</code></td>
+<td>你的命令行名（只能是命令名，不能带路径）</td>
+</tr>
+<tr>
+<td><code>mcp.file</code></td>
+<td>你的 MCP 配置文件。必须在用户主目录下（<code>~/…</code>），JSON 格式</td>
+</tr>
+<tr>
+<td><code>mcp.key</code></td>
+<td>顶层键名，常见是 <code>mcpServers</code></td>
+</tr>
+<tr>
+<td><code>mcp.when</code></td>
+<td><code>always</code> 没有就新建；<code>dir</code> 目录存在才写；<code>file</code> 文件存在才写</td>
+</tr>
+<tr>
+<td><code>mcp.entry</code></td>
+<td>你的配置里一条服务的写法，用 <code>{command}</code> 代表 FrameLeap 的启动命令（可以出现在数组里，如 <code>["{command}"]</code>）</td>
+</tr>
+<tr>
+<td><code>mcp.cli</code> + <code>mcp.cli_add</code></td>
+<td>你的命令行添加 MCP 的命令。第一项必须是 <code>{cli}</code>，参数里只能用 <code>{name}</code>、<code>{command}</code> 两个占位</td>
+</tr>
+<tr>
+<td><code>mcp.deeplink</code></td>
+<td>你的安装链接（只能是你自己的协议，如 <code>codeneo://</code>）。可用占位见下表</td>
+</tr>
+<tr>
+<td><code>skill.dir</code></td>
+<td>你的用户级技能目录（<code>~/…</code>）。FrameLeap 会复制成 <code>&lt;dir&gt;/frameleap-video/SKILL.md</code></td>
+</tr>
+<tr>
+<td><code>skill.upload</code></td>
+<td>只能在界面里上传 Skill 时设为 <code>true</code>；FrameLeap 会提示用户下载 Skill 压缩包</td>
+</tr>
+</tbody>
+</table>
+<p><code>mcp.file</code>、<code>mcp.cli_add</code>、<code>mcp.deeplink</code>、<code>skill.dir</code> 至少要有一个。</p>
+<p>安装链接里可用的占位：</p>
+<table>
+<thead>
+<tr>
+<th>占位</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{name}</code></td>
+<td><code>frameleap</code></td>
+</tr>
+<tr>
+<td><code>{command}</code> / <code>{command_url}</code></td>
+<td>启动命令 / URL 编码后的启动命令</td>
+</tr>
+<tr>
+<td><code>{config_json}</code> / <code>{config_url}</code></td>
+<td><code>mcp.entry</code> 填好后的 JSON / 它的 URL 编码</td>
+</tr>
+<tr>
+<td><code>{config_b64}</code> / <code>{config_b64_url}</code></td>
+<td>JSON 的 base64 / 再做 URL 编码（Cursor、Trae 风格）</td>
+</tr>
+<tr>
+<td><code>{config_url_b64_url}</code></td>
+<td>先 URL 编码，再 base64，再 URL 编码（Qoder 风格）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-frameleap">4.3 FrameLeap 一键接入时做什么</h3>
+<ol>
+<li>有 <code>mcp.cli_add</code>，并且本机找得到你的命令：先把完整命令展示给用户确认，再运行。</li>
+<li>否则合并 <code>mcp.file</code>：先备份为 <code>*.bak-frameleap</code>，只增加 <code>frameleap</code> 一项；带注释的 JSON 不改。</li>
+<li>都不行就打开 <code>mcp.deeplink</code>，由你的软件弹出确认。</li>
+<li>复制 Skill 到 <code>skill.dir</code>。</li>
+<li>已经注册过的不重复写；结果和需要用户手动做的步骤显示在 FrameLeap 页面上。</li>
+</ol>
+<h3 id="44-frameleap">4.4 安全限制（FrameLeap 会拒绝不合格的适配文件）</h3>
+<ul>
+<li>路径必须在用户主目录下，且不能含 <code>..</code>。</li>
+<li>命令行不能是 <code>sh</code>、<code>bash</code>、<code>python</code>、<code>node</code>、<code>osascript</code>、<code>open</code>、<code>curl</code> 等通用命令。</li>
+<li>安装链接不能是 <code>http(s)</code>、<code>file</code>、<code>javascript</code> 等。</li>
+<li>由适配文件定义的命令，运行前一定先让用户确认。</li>
+</ul>
+<hr />
+<h2 id="5-skillframeleap-video">5. Skill：<code>frameleap-video</code></h2>
+<ul>
+<li>标准 SKILL.md（YAML 头 <code>name</code>、<code>description</code>），附 <code>references/modes.md</code>、<code>references/cli.md</code>。</li>
+<li>获取方式：</li>
+<li>发现文件里的 <code>skill.dir</code>（本机目录）；</li>
+<li><code>skill.zip_url</code>（压缩包，文件夹名与 Skill 同名）；</li>
+<li>或 FrameLeap 一键接入时复制到你的 <code>skill.dir</code>。</li>
+<li>也会放进通用目录 <code>~/.agents/skills/frameleap-video</code>。如果你的软件读这个目录，就不用单独处理。</li>
+<li>内容是标准流程：出片 → 等待 → 审片 → 拿成片 → 发布前确认，以及“429 不要绕过”等规则。请不要改写，以便 FrameLeap 升级时同步更新。</li>
+</ul>
+<hr />
+<h2 id="6-mcp-http">6. 不用 MCP 时：HTTP 接口</h2>
+<ul>
+<li>地址：发现文件里的 <code>url</code>（桌面版端口在 17860–17899 之间，<code>frameleap serve</code> 默认 8000）。</li>
+<li>本机单用户模式不需要鉴权；云端部署带 <code>Authorization: Bearer fl_…</code>（工作区 API Key）。</li>
+<li>请求头请带 <code>X-FrameLeap-Client: codeneo</code>，FrameLeap 才能统计来源、应用限额。</li>
+<li>主流程：</li>
+<li><code>POST /api/assistant/intake</code>：需求转成方案；</li>
+<li><code>POST /api/studio/runs</code> 或 <code>POST /api/jobs</code>：开工；</li>
+<li><code>GET /api/studio/runs/{id}</code> 或 <code>GET /api/jobs/{id}</code>：查进度；</li>
+<li><code>POST /api/assistant/run/{id}</code> 或 <code>POST /api/assistant/job/{id}</code>：确认或修改；</li>
+<li><code>GET /api/jobs/{id}/outputs</code>：拿成片。</li>
+<li>详细字段见 <code>integrations/skills/frameleap-video/references/cli.md</code>。</li>
+</ul>
+<hr />
+<h2 id="7">7. 限额与来源</h2>
+<ul>
+<li>FrameLeap 只约束外部智能体（按 <code>X-FrameLeap-Client</code> 识别；MCP 会自动带上 <code>mcp:&lt;clientInfo.name&gt;</code>）。</li>
+<li>默认同时进行 2 个任务、每天新建 20 个，用户可以在设置页调整，也可以关闭发布或整体关闭接入。</li>
+<li>外部智能体建的任务，在 FrameLeap 任务中心显示“来自 CodeNeo”。</li>
+</ul>
+<hr />
+<h2 id="8">8. 联调清单</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查</th>
+<th>期望</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>你的软件读到 <code>~/.config/frameleap/server.json</code></td>
+<td>提示发现 FrameLeap</td>
+</tr>
+<tr>
+<td>2</td>
+<td>启动 <code>mcp.command</code>，发送 <code>initialize</code></td>
+<td><code>serverInfo.name = "frameleap"</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>tools/list</code></td>
+<td>15 个 <code>fl_*</code> 工具</td>
+</tr>
+<tr>
+<td>4</td>
+<td>调 <code>fl_status</code></td>
+<td>返回版本和接入策略；FrameLeap 没开时返回 <code>not_running</code> 和 <code>hint</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>说“做一期今天的 AI 早报，竖屏”</td>
+<td><code>fl_create_video</code> 返回 <code>need_input</code> 或 <code>started</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>fl_wait_task</code>（<code>progressToken</code>）</td>
+<td>收到 <code>notifications/progress</code>；45 秒内返回</td>
+</tr>
+<tr>
+<td>7</td>
+<td>放好 <code>~/.config/frameleap/clients/codeneo.json</code></td>
+<td>FrameLeap 设置页里 CodeNeo 显示“软件自带适配文件”，可一键接入</td>
+</tr>
+<tr>
+<td>8</td>
+<td>在 FrameLeap 点 CodeNeo 的「一键接入」</td>
+<td>你的配置里出现 <code>frameleap</code>；Skill 出现在 <code>skill.dir</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td>FrameLeap 任务中心</td>
+<td>任务显示“来自 CodeNeo”</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>fl_publish</code> 不带令牌</td>
+<td>只返回预览，不发布</td>
+</tr>
+</tbody>
+</table>
+<p>FrameLeap 自带的自检：「设置 › 接入 AI 助手 › 连接测试」，或运行 <code>scripts/mcp_smoke.py</code>。</p>
+<hr />
+<h2 id="9">9. 联系与版本</h2>
+<ul>
+<li>字段只增不改。不兼容的变化会升 <code>schema</code> 版本（<code>frameleap-client/2</code>、<code>frameleap-server/2</code>），FrameLeap 会同时支持旧版本至少一个大版本。</li>
+<li>适配文件写好后，可以在 FrameLeap 设置页「导出适配文件」，发给 FrameLeap 团队，收录进内置列表。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2026 贵阳黔前科技有限公司 · 臻悦 / FrameLeap 是贵阳黔前科技有限公司的商标
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>
