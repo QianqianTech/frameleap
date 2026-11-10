@@ -1,7 +1,7 @@
 {
   "name": "frameleap-mcp",
-  "version": "0.1.12",
-  "description": "FrameLeap Studio（臻跃）MCP 转发程序：让 Claude Code、Codex、Cursor 等 AI 助手调用 FrameLeap 出片（本机桌面版或云端版）",
+  "version": "0.1.16",
+  "description": "FrameLeap Studio（臻悦）MCP 转发程序：让 Claude Code、Codex、Cursor 等 AI 助手调用 FrameLeap 出片（本机桌面版或云端版）",
   "type": "module",
   "bin": {
     "frameleap-mcp": "bin/frameleap-mcp.mjs"
@@ -27,7 +27,7 @@
     "claude",
     "codex",
     "cursor",
-    "臻跃"
+    "臻悦"
   ],
   "homepage": "https://github.com/QianqianTech/frameleap#readme",
   "repository": {

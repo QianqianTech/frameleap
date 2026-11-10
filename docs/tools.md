@@ -4,6 +4,7 @@
 
 | 工具 | 用途 | 只读 |
 |---|---|---|
+| `fl_memory` | 记忆与跨会话历史 | 否 |
 | `fl_create_video` | 用一句话做视频 | 否 |
 | `fl_edit_video` | 口播素材后期 | 否 |
 | `fl_start_studio` | 按参数启动智能出片 | 否 |
@@ -14,13 +15,43 @@
 | `fl_cancel_task` | 取消任务 | 否 |
 | `fl_get_outputs` | 获取成片 | 否 |
 | `fl_catalog` | 可选项目录 | 是 |
+| `fl_resources` | 搜索并搭配模板、风格与动效 | 否 |
 | `fl_publish` | 发布到平台 | 否 |
 | `fl_segments` | 成片分段 | 是 |
 | `fl_segment_edit` | 选段修改 | 否 |
 | `fl_redub` | 重新配音 | 否 |
 | `fl_template` | 模板：查找 / 按模板出片 / 新建 / 导出对接包 | 否 |
 | `fl_upload` | 上传原片（远程） | 否 |
+| `fl_skills` | 可用的技能 | 是 |
 | `fl_status` | 服务检查 | 是 |
+| `fl_plan` | 制作方案与确认 | 否 |
+| `fl_story_script` | 生图成片文字分镜 | 否 |
+| `fl_storyboard` | 产品图解分镜 | 否 |
+| `fl_task_action` | 审片与续跑 | 否 |
+| `fl_assets` | 工作区素材库 | 否 |
+| `fl_publications` | 发布回执 | 是 |
+| `fl_automation` | 栏目自动化 | 否 |
+| `fl_capabilities` | 查找 FrameLeap 软件能力 | 是 |
+| `fl_invoke` | 调用 FrameLeap 软件能力 | 否 |
+
+## `fl_memory` · 记忆与跨会话历史
+
+先查可靠偏好再询问缺项；search 返回索引，read 按需回读，timeline 查纠正先后。仅在用户明确要求记住或忘记时调用 remember/forget；保存时携带 list 返回的字段 revision，新增字段用 0。身份取自连接账户。
+
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `action` | string：list / changes / search / read / timeline / continuation / remember / forget | 是 |  |
+| `query` | string |  |  |
+| `ref` | string |  |  |
+| `mode` | string |  |  |
+| `fields` | object |  |  |
+| `revisions` | object |  |  |
+| `keys` | array |  |  |
+| `scope` | string：personal / project / workspace |  |  |
+| `project_id` | string |  |  |
+| `after` | integer |  |  |
+| `offset` | integer |  |  |
+| `limit` | integer |  |  |
 
 ## `fl_create_video` · 用一句话做视频
 
@@ -34,15 +65,16 @@
 | `sources` | array |  | 多个原片（批量建作业） |
 | `platforms` | array |  | 目标平台，如 douyin、bilibili、xiaohongshu、channels、youtube |
 | `approval` | string：auto / manual / skip |  | 审批方式：auto 质检通过自动往下走、有问题才停（默认）；manual 每一步都停下等确认；skip 全程不停（发布和超预算仍会询问）（默认 "auto"） |
-| `start` | boolean |  | false = 只出方案不开工，给用户确认后再带 start=true 调用（默认 true） |
+| `start` | boolean |  | false = 生成确认单；有 plan_id 时经 fl_plan 确认提交（默认 true） |
+| `skill` | string |  | 用工作区里的某个技能来做（技能名，见 fl_skills），例如用户说“用我们的探店技能做一条” |
 
 ## `fl_edit_video` · 口播素材后期
 
-对已有口播视频做后期（去口癖粗剪、字幕包装、配乐、多平台导出），参数明确时用它，不经过对话。只描述需求时用 fl_create_video。
+口播制作与后期：已有视频传 source；照片或数字人念稿传 avatar（mode=script）和 script，生成口播后沿用模板做字幕、包装和多平台导出。只描述需求时用 fl_create_video。
 
 | 参数 | 类型 | 必填 | 说明 |
 |---|---|---|---|
-| `source` | string | 是 | 原片绝对路径或 http/s3 地址 |
+| `source` | string |  | 原片绝对路径或 http/s3 地址；数字人念稿时可省略 |
 | `platforms` | array |  | （默认 ["douyin"]） |
 | `title` | string |  | 片内 / 发布标题 |
 | `style_hint` | string |  | 风格提示，如“知识科普，沉稳” |
@@ -51,6 +83,13 @@
 | `remove_fillers` | boolean |  | （默认 true） |
 | `speaker_name` | string |  |  |
 | `speaker_title` | string |  |  |
+| `avatar` | object |  | 已有数字人或照片形象：look_id、mode（script/replace/pip）、voice_id、lip_engine（qtalk/wan/heygen）、motion_prompt；script 模式可代替原片 |
+| `style_template` | string |  |  |
+| `brandkit` | string |  |  |
+| `marketing` | object |  | 企业营销简报，填写 objective、brand_name、offer、audience、selling_points、evidence、cta_text、cta_detail 等字段 |
+| `screencast` | boolean |  | 原片以软件录屏为主，技术质检对照原片中的界面停留 |
+| `hotwords` | array |  |  |
+| `keep_full_source` | boolean |  | 保留完整原稿与顺序，适合已定稿的数字人口播 |
 | `template` | string |  | 作业模板 ID（fl_catalog what=templates） |
 | `approval` | string：auto / manual / skip |  | 审批方式：auto 质检通过自动往下走、有问题才停（默认）；manual 每一步都停下等确认；skip 全程不停（发布和超预算仍会询问）（默认 "auto"） |
 
@@ -60,10 +99,12 @@
 
 | 参数 | 类型 | 必填 | 说明 |
 |---|---|---|---|
-| `kind` | string：news_brief / software_demo / image_story / product_explainer / self_media / ai_video |  |  |
+| `kind` | string：news_brief / software_demo / image_story / product_explainer / self_media / ai_video / image_gen / knowledge_film / footage |  |  |
 | `params` | object |  | 该模式的参数（与 FrameLeap 界面里的设置同名） |
-| `template` | string |  | 模板 ID（fl_catalog what=templates） |
+| `template` | string |  | 模板 ID（fl_catalog what=templates）；传此项时 params 只能填模板 schema 的字段。已编译的出片设置请只传 kind 和 params。 |
 | `name` | string |  | 任务名 |
+| `start` | boolean |  | false = 只保存待确认方案 |
+| `idempotency_key` | string |  | 直接开工时的稳定提交标识 |
 | `approval` | string：auto / manual / skip |  | 审批方式：auto 质检通过自动往下走、有问题才停（默认）；manual 每一步都停下等确认；skip 全程不停（发布和超预算仍会询问）（默认 "auto"） |
 
 ## `fl_list_tasks` · 任务列表
@@ -74,6 +115,7 @@
 |---|---|---|---|
 | `limit` | integer |  | （默认 20） |
 | `phase` | string：running / needs_input / done / failed / cancelled |  |  |
+| `state` | string |  | 按具体业务状态筛选，如 needs_attention 或 waiting_credits |
 | `type` | string：all / job / run |  | （默认 "all"） |
 
 ## `fl_get_task` · 任务详情
@@ -96,12 +138,16 @@
 
 ## `fl_reply` · 对任务说话
 
-像在 FrameLeap 对话里一样对任务说一句话：审片 / 草稿时说“通过”或修改意见（“字幕再大一点”“开头那句删掉”“换成男声”），完成后说“再改改…”出新一版，失败后说“重试”。确认类回复必须来自用户本人的意见。
+像在 FrameLeap 对话里一样对任务说一句话：审片 / 草稿时说“通过”或修改意见（“字幕再大一点”“开头那句删掉”“换成男声”），完成后说“再改改…”出新一版，失败后说“重试”。智能出片支持查询后续修改、取消后续修改和提交确认单。提交前要先给用户看方案并得到本人明确同意。
 
 | 参数 | 类型 | 必填 | 说明 |
 |---|---|---|---|
 | `task_id` | string | 是 | 任务编号，形如 job:abc123 或 run:xyz789（来自 fl_create_video / fl_list_tasks） |
-| `text` | string | 是 | 要传达的话 |
+| `text` | string |  |  |
+| `action` | string：say / confirm / followups / cancel_followup |  | （默认 "say"） |
+| `confirm_token` | string |  |  |
+| `confirm_kind` | string：production_edit / rerun |  |  |
+| `followup_id` | string |  |  |
 
 ## `fl_cancel_task` · 取消任务
 
@@ -118,16 +164,39 @@
 | 参数 | 类型 | 必填 | 说明 |
 |---|---|---|---|
 | `task_id` | string | 是 | 任务编号，形如 job:abc123 或 run:xyz789（来自 fl_create_video / fl_list_tasks） |
+| `include_previews` | boolean |  | 同时返回允许交付的中间预览 |
 | `download_to` | string |  | 下载目录（绝对路径），不传则只返回链接 |
 | `videos_only` | boolean |  | 下载时只下视频（false 时一并下载封面、字幕、文案）（默认 true） |
 
 ## `fl_catalog` · 可选项目录
 
-查询可选项：modes（视频模式和示例需求）、templates（模板）、voices（音色）、platforms（平台规格）、accounts（发布账号）、caption_styles（字幕风格）。
+capabilities 返回可制作片型和确认单字段，指定 mode 可读取字段、选项和预估。也可查询模式、模板、音色、平台、账号和字幕风格。
 
 | 参数 | 类型 | 必填 | 说明 |
 |---|---|---|---|
-| `what` | string：modes / templates / voices / platforms / accounts / caption_styles |  | （默认 "modes"） |
+| `what` | string：capabilities / modes / templates / voices / platforms / accounts / caption_styles |  | （默认 "modes"） |
+| `mode` | string |  |  |
+| `params` | object |  |  |
+
+## `fl_resources` · 搜索并搭配模板、风格与动效
+
+search 搜索整个授权目录，支持语义关键词、别名、#044 和分页。prepare 用真实 ID 将组合编译为可恢复的制作方案，不开工、不记为长期偏好；补齐输入后通过 fl_plan 确认。普通一句话需求仍可用 fl_create_video 自动选择。
+
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `action` | string：search / prepare | 是 |  |
+| `query` | string |  |  |
+| `kind` | string： / template / style_pack / motion |  |  |
+| `mode` | string |  |  |
+| `offset` | integer |  |  |
+| `limit` | integer |  |  |
+| `template` | string |  |  |
+| `version` | integer |  |  |
+| `inputs` | object |  |  |
+| `current` | object |  |  |
+| `style_pack` | string |  |  |
+| `motion` | string |  |  |
+| `approval` | string：auto / manual / skip |  | 审批方式：auto 质检通过自动往下走、有问题才停（默认）；manual 每一步都停下等确认；skip 全程不停（发布和超预算仍会询问）（默认 "auto"） |
 
 ## `fl_publish` · 发布到平台
 
@@ -145,23 +214,26 @@
 
 ## `fl_segments` · 成片分段
 
-列出一条智能出片成片（run:…）的分段：每段的时间、标题、旁白、画面文字和能做的修改，以及历史版本。用于选段修改前。
+查看智能出片成片的当前版本、分段时间、缩略图、画面文字、旁白和可执行的修改。传 exact_version 可查指定的历史版本。
 
 | 参数 | 类型 | 必填 | 说明 |
 |---|---|---|---|
-| `task_id` | string | 是 | 任务编号，形如 job:abc123 或 run:xyz789（来自 fl_create_video / fl_list_tasks） |
+| `task_id` | string | 是 | 成片任务编号（run:…） |
+| `exact_version` | boolean |  | true 查指定版本，默认跟随当前版本（默认 false） |
 
 ## `fl_segment_edit` · 选段修改
 
-只改成片里选中的几段，其余部分沿用原片（原版保留，可还原）。两步：先传 segment_ids + request 生成方案（不执行）；把方案和影响告诉用户，同意后带 plan_id 再调用一次执行，得到新任务编号。
+沿用工作台局部修改流程，默认在当前版本选段。已有 SRT 要嵌入画面或只改片尾卡时传 post。先生成方案，用户同意后带返回的 task_id 和 plan_id 执行。同一方案重复确认返回已有任务。
 
 | 参数 | 类型 | 必填 | 说明 |
 |---|---|---|---|
-| `task_id` | string | 是 | 任务编号，形如 job:abc123 或 run:xyz789（来自 fl_create_video / fl_list_tasks） |
+| `task_id` | string | 是 | 成片任务编号（run:…）。执行时传方案返回的 task_id |
+| `exact_version` | boolean |  | 生成方案时显式指定历史版本。默认跟随当前版本（默认 false） |
 | `segment_ids` | array |  | 要改的段（fl_segments 返回的 id），简洁档最多连选 3 段 |
 | `request` | string |  | 怎么改，例如：把“旧文字”改成“新文字”、这句旁白改成……、换一张图、删掉这段 |
 | `mode` | string：simple / pro |  | （默认 "simple"） |
-| `plan_id` | string |  | 第一步返回的方案编号；只有用户同意后才传 |
+| `post` | object |  | 在已渲染成片上合成，不用选段。沿用原旁白和字幕时间。 |
+| `plan_id` | string |  | 第一步返回的方案编号，有效期一小时。用户同意后传入。同一账号可在重连后继续执行 |
 
 ## `fl_redub` · 重新配音
 
@@ -174,16 +246,20 @@
 | `voice_name` | string |  |  |
 | `voice_target` | string |  | 音色所属配音目标，如 heygen:heygen-voice-1；音色库别名可不填 |
 | `speed` | number |  | 语速倍数 0.7–1.5（只对智能出片），如 1.1 表示快一点 |
+| `ai_label_placement` | string：corner / intro_footer |  | 生图成片的生成标识放在全程角标或片头底部 |
+| `workspace_watermark` | boolean |  | 生图成片修订版是否叠加工作区文字水印 |
 | `dry_run` | boolean |  | true：只返回能否重新配音、沿用 / 重做哪些、计费项，不执行（默认 false） |
 
 ## `fl_template` · 模板：查找 / 按模板出片 / 新建 / 导出对接包
 
-所有模板相关操作。action=list 列出模板（keyword 筛选）；schema 看某个模板要填什么；use 按模板出片（返回 task_id，图片 / 音频可写本机绝对路径，自动上传）；create 按规范 frameleap.template/v1 新建模板（严格校验，错误带修改建议，dry_run=true 只校验）；export_dev_kit 导出给三方的对接包 zip（link_days 同时生成只读链接）。口播模板出片请用 fl_edit_video。
+查找模板、读取填空或版本、按指定版本准备制作、从已验收作品保存模板。prepare 先校验输入并预估，用户确认后用 fl_plan 提交。use 直接开工。create 可用 dry_run 校验。export_dev_kit 导出对接包。口播模板请用 fl_edit_video。
 
 | 参数 | 类型 | 必填 | 说明 |
 |---|---|---|---|
-| `action` | string：list / schema / use / create / export_dev_kit | 是 |  |
+| `action` | string：list / schema / versions / use / create / prepare / from_task / export_dev_kit | 是 |  |
 | `template_id` | string |  | schema / use / export_dev_kit 必填 |
+| `version` | integer |  |  |
+| `task_id` | string |  | 任务编号，形如 job:abc123 或 run:xyz789（来自 fl_create_video / fl_list_tasks） |
 | `keyword` | string |  | list：按名称 / 分类 / 说明筛选 |
 | `mode` | string |  | list：按生成方式筛选 |
 | `mine` | boolean |  | list：只看自建模板 |
@@ -205,6 +281,15 @@
 | `action` | string：create / status |  | （默认 "create"） |
 | `name` | string |  | 文件名（含扩展名，如 口播.mp4） |
 | `upload_id` | string |  | action=status 时：create 返回的 upload_id |
+| `operation_id` | string |  | 为指定的 fl_invoke 能力上传文件，本机也可使用，模板包等格式需传入 |
+
+## `fl_skills` · 可用的技能
+
+列出用户在 FrameLeap 里启用的技能（团队做某一类片子的做法说明，如“门店探店”）。用户提到“用我们的 XX 技能 / 按我们的做法”时先调用，再在 fl_create_video 的 skill 参数里填技能名。只读。
+
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `keyword` | string |  | 按名称 / 说明筛选 |
 
 ## `fl_status` · 服务检查
 
@@ -213,5 +298,122 @@
 | 参数 | 类型 | 必填 | 说明 |
 |---|---|---|---|
 | `deep` | boolean |  | （默认 false） |
+
+## `fl_plan` · 制作方案与确认
+
+读取、修改或提交带版本的制作方案。早报支持 news_preview、news_status、pick_news。confirm 前展示方案与费用预估，只有用户确认后才提交当前 revision。重连可用 get 查回执。
+
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `action` | string：get / news_status / update / confirm / news_preview / pick_news | 是 |  |
+| `plan_id` | string | 是 |  |
+| `revision` | integer |  |  |
+| `patch` | object |  |  |
+| `preview_id` | string |  |  |
+| `news_ids` | array |  |  |
+
+## `fl_story_script` · 生图成片文字分镜
+
+知识科普等生图成片的可编辑文字分镜。preview 只写稿，支持 template_id + inputs/overrides 或 params；list 恢复已保存分镜；get 读取。update 的 patch 支持 shots（i/text/visual/characters）与 characters（id/name/desc）；update/start 必须带当前字符串 revision。start 沿用已核对的分镜、音色和品牌，stage 为 draft 或 final。
+
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `action` | string：list / preview / get / update / start | 是 |  |
+| `script_id` | string |  |  |
+| `revision` | string |  |  |
+| `params` | object |  |  |
+| `template_id` | string |  |  |
+| `inputs` | object |  |  |
+| `overrides` | object |  |  |
+| `patch` | object |  |  |
+| `stage` | string：draft / final |  |  |
+
+## `fl_storyboard` · 产品图解分镜
+
+读取或修改产品图解草稿。update 与 start 必须带当前 revision。展示分镜并获得用户确认后执行 start。
+
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `action` | string：get / update / start | 是 |  |
+| `draft_id` | string | 是 |  |
+| `revision` | integer |  |  |
+| `patch` | object |  |  |
+
+## `fl_task_action` · 审片与续跑
+
+inspect 查看审核内容和版本。用户确认后用 approve 或 reject 提交意见，attest 提交已复核的具体质检项，release 完成验收，retry 续跑中断任务。
+
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `action` | string：inspect / approve / reject / attest / release / retry | 是 |  |
+| `task_id` | string | 是 | 任务编号，形如 job:abc123 或 run:xyz789（来自 fl_create_video / fl_list_tasks） |
+| `review_revision` | string |  |  |
+| `media_revision` | string |  |  |
+| `note` | string |  |  |
+| `artifact` | string |  |  |
+| `checks` | object |  |  |
+
+## `fl_assets` · 工作区素材库
+
+搜索、查看或收藏到素材库。把返回的 asset_ref 填入模板的图片或音频字段。
+
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `action` | string：search / get / save | 是 |  |
+| `keyword` | string |  |  |
+| `asset_ref` | string |  |  |
+| `kind` | string |  |  |
+| `scope` | string：builtin / library / favorites / enterprise |  |  |
+| `page` | integer |  |  |
+| `limit` | integer |  |  |
+
+## `fl_publications` · 发布回执
+
+按发布记录、任务或平台查询提交后的状态和平台回执。
+
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `publication_id` | string |  |  |
+| `task_id` | string |  | 任务编号，形如 job:abc123 或 run:xyz789（来自 fl_create_video / fl_list_tasks） |
+| `status` | string |  |  |
+| `platform` | string |  |  |
+| `limit` | integer |  |  |
+
+## `fl_automation` · 栏目自动化
+
+查询栏目或预览配置。prepare 保存待确认的试跑、启停或周期栏目方案，再由 fl_plan 确认。试跑只进入审片。
+
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `action` | string：list / preview / prepare | 是 |  |
+| `operation` | string：run / enable / pause / schedule |  |  |
+| `channel_id` | string |  |  |
+| `config` | object |  |  |
+| `topic` | string |  |  |
+
+## `fl_capabilities` · 查找 FrameLeap 软件能力
+
+发现各模块的可用操作。用 group 或 q 查找，带 operation_id 读取路径参数、查询参数、请求体和确认方式。
+
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `group` | string |  |  |
+| `q` | string |  |  |
+| `operation_id` | string |  |  |
+| `offset` | integer |  |  |
+| `limit` | integer |  |  |
+| `include_unavailable` | boolean |  |  |
+
+## `fl_invoke` · 调用 FrameLeap 软件能力
+
+使用 fl_capabilities 返回的 operation_id 调用原生功能。读取立即执行。写入先返回方案，用户核对后以 action=confirm 提交 plan_id 和 revision。
+
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| `action` | string：call / status / confirm |  | （默认 "call"） |
+| `operation_id` | string |  |  |
+| `arguments` | object |  |  |
+| `plan_id` | string |  |  |
+| `revision` | integer |  |  |
 
 资源：`frameleap://task/{task_id}`（任务详情，完成后含成片链接）。

@@ -1,6 +1,6 @@
 # FrameLeap Connect
 
-把 AI 助手接到 **FrameLeap Studio（臻跃）**：一句话出片、审片、拿成片，经你确认后发布。
+把 AI 助手接到 **FrameLeap Studio（臻悦）**：一句话出片、审片、拿成片，经你确认后发布。
 
 - [快速开始](quickstart.md)：3 分钟接好第一个客户端
 - [各客户端接入](clients/index.md)：Claude、Claude Code、Codex、Cursor、VS Code、Qoder、Trae、CodeBuddy、WorkBuddy、DeepSeek Harness 等

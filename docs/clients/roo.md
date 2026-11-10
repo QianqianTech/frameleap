@@ -8,7 +8,7 @@ Roo · VS Code 插件 · 支持 macOS、Windows、Linux
 
 ## 手动配置（本机或云端，通过转发程序）
 
-或合并进 `/root/.config/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json` 的 `mcpServers`：
+或合并进 `~/Library/Application Support/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json` 的 `mcpServers`：
 
 ```json
 {

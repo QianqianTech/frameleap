@@ -8,7 +8,7 @@
 
 ## 手动配置（本机或云端，通过转发程序）
 
-或合并进 `/root/.config/Trae/User/mcp.json` 的 `mcpServers`：
+或合并进 `~/Library/Application Support/Trae/User/mcp.json` 的 `mcpServers`：
 
 ```json
 {

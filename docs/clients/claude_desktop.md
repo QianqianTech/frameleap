@@ -8,7 +8,7 @@ Anthropic · 桌面应用 · 支持 macOS、Windows
 
 ## 手动配置（本机或云端，通过转发程序）
 
-或合并进 `/root/.config/Claude/claude_desktop_config.json` 的 `mcpServers`：
+或合并进 `~/Library/Application Support/Claude/claude_desktop_config.json` 的 `mcpServers`：
 
 ```json
 {

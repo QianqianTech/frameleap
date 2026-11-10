@@ -1,11 +1,11 @@
-FrameLeap Connect（臻跃 接入包）
+FrameLeap Connect（臻悦 接入包）
 Copyright 2026 贵阳黔前科技有限公司（Guiyang Qianqian Technology Co., Ltd.）
 
 本仓库以 Apache License 2.0 发布，只包含把 AI 助手接到 FrameLeap Studio 的接入层：
 Skill、各客户端插件包、MCP 转发程序 frameleap-mcp、客户端适配文件规范与 JSON Schema、对接文档和示例。
 FrameLeap Studio 本体（视频生成与后期引擎、云端服务）不在本仓库内，也不以本许可证授权。
 
-商标：“臻跃”“FrameLeap”“FrameLeap Studio”及其标志是贵阳黔前科技有限公司的商标。Apache-2.0 不授予商标使用权
+商标：“臻悦”“FrameLeap”“FrameLeap Studio”及其标志是贵阳黔前科技有限公司的商标。Apache-2.0 不授予商标使用权
 （见许可证第 6 条）；转发、改编本仓库时请勿让人误以为改编版本由我们发布或认可。
 
 HyperFrames 是 HeyGen 的开源项目（Apache-2.0，https://github.com/heygen-com/hyperframes）；FrameLeap Studio 使用它作为渲染引擎，

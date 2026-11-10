@@ -1,16 +1,16 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
   "name": "io.github.qianqiantech/frameleap",
-  "title": "FrameLeap Studio（臻跃）",
+  "title": "FrameLeap Studio（臻悦）",
   "description": "AI video creation & post-production: one sentence to a finished, reviewed video; publish only after you confirm.",
-  "version": "0.1.12",
+  "version": "0.1.16",
   "websiteUrl": "https://www.qianqianai.com",
   "repository": {"url": "https://github.com/QianqianTech/frameleap", "source": "github", "subfolder": "packages/frameleap-mcp"},
   "packages": [
     {
       "registryType": "npm",
       "identifier": "frameleap-mcp",
-      "version": "0.1.12",
+      "version": "0.1.16",
       "transport": {"type": "stdio"},
       "environmentVariables": [
         {"name": "FRAMELEAP_URL", "description": "FrameLeap cloud / private deployment URL. Leave empty to use the local FrameLeap desktop app.", "isRequired": false, "format": "string"},

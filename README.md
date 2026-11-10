@@ -1,7 +1,7 @@
-# FrameLeap Connect · 臻跃 接入包
+# FrameLeap Connect · 臻悦 接入包
 
 让 **Claude Code、Codex、Cursor、VS Code、Qoder、Trae、CodeBuddy、WorkBuddy、DeepSeek Harness、Kimi Code、Qwen Code、Gemini CLI** 等 AI 助手
-直接调用 [FrameLeap Studio（臻跃）](https://www.qianqianai.com) 出片：口播后期、每日资讯 / AI 早报、软件演示、AI 生图成片、产品图解、热点解读、AI 视频，
+直接调用 [FrameLeap Studio（臻悦）](https://www.qianqianai.com) 出片：口播后期、每日资讯 / AI 早报、软件演示、AI 生图成片、产品图解、热点解读、AI 视频，
 审片、拿成片，经你确认后发布到抖音、视频号、小红书、B 站等平台。
 
 > 本仓库只有接入层（Skill、插件、MCP 转发程序、适配规范、文档），FrameLeap Studio 本体不开源。许可证 Apache-2.0，见 [LICENSE](LICENSE) 与 [NOTICE](NOTICE)。
@@ -49,4 +49,4 @@ claude mcp add --scope user frameleap -e FRAMELEAP_URL=https://<你的域名> -e
 
 欢迎提交客户端适配文件（让新的 AI 软件支持一键接入）、文档改进和问题反馈，见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
-© 2026 贵阳黔前科技有限公司 · 臻跃 / FrameLeap 是贵阳黔前科技有限公司的商标。
+© 2026 贵阳黔前科技有限公司 · 臻悦 / FrameLeap 是贵阳黔前科技有限公司的商标。

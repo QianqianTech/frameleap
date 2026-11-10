@@ -8,7 +8,7 @@
     {
       "name": "frameleap",
       "source": "./plugins/claude",
-      "description": "调用本机 FrameLeap Studio（臻跃）出片与发布"
+      "description": "调用本机 FrameLeap Studio（臻悦）出片与发布"
     }
   ]
 }

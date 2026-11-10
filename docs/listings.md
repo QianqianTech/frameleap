@@ -1,6 +1,6 @@
 # 发布渠道清单（O-05）
 
-目标：在 5 个以上目录里能搜到 “FrameLeap / 臻跃”。每个渠道都需要用公司账号操作一次，之后由 CI 自动更新版本。
+目标：在 5 个以上目录里能搜到 “FrameLeap / 臻悦”。每个渠道都需要用公司账号操作一次，之后由 CI 自动更新版本。
 
 | 渠道 | 提交什么 | 怎么提交 | 自动更新 |
 |---|---|---|---|
@@ -16,4 +16,4 @@
 | skills.sh 等技能目录 | `skills/frameleap-video` | 按目录要求提交仓库地址 | 跟随仓库 |
 
 提交前检查：README 首屏有一句话说明 + 三种用法；图标用 `docs/assets/logo.svg`；简介统一用：
-“臻跃 FrameLeap：一句话出片、审片、发布的 AI 视频软件。让 Claude、Codex、Cursor 等 AI 助手直接调用它做视频。”
+“臻悦 FrameLeap：一句话出片、审片、发布的 AI 视频软件。让 Claude、Codex、Cursor 等 AI 助手直接调用它做视频。”

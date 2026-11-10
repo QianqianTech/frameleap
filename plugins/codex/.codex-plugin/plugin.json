@@ -1,7 +1,7 @@
 {
   "name": "frameleap",
-  "version": "0.1.12",
-  "description": "调用 FrameLeap Studio（本机桌面版或云端）（臻跃）出片：口播后期、每日资讯、软件演示、AI 生图成片、产品图解、热点解读、AI 视频，以及多平台发布。",
+  "version": "0.1.16",
+  "description": "调用 FrameLeap Studio（臻悦）制作视频、审片、修改和交付成片。",
   "author": {
     "name": "贵阳黔前科技有限公司",
     "url": "https://www.qianqianai.com"
@@ -9,8 +9,7 @@
   "keywords": [
     "video",
     "frameleap",
-    "臻跃",
-    "frameleap",
+    "臻悦",
     "视频",
     "剪辑",
     "出片",
@@ -20,8 +19,11 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "FrameLeap Studio",
-    "shortDescription": "一句话出片、审片、发布",
-    "category": "Media",
-    "defaultPrompt": "用 FrameLeap 做一期今天的 AI 早报，竖屏"
+    "shortDescription": "视频制作、审片与交付",
+    "developerName": "贵阳黔前科技有限公司",
+    "category": "Creativity",
+    "defaultPrompt": "用 FrameLeap 做一期今天的 AI 早报，竖屏",
+    "logo": "./assets/frameleap.png",
+    "composerIcon": "./assets/frameleap.png"
   }
 }

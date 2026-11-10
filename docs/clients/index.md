@@ -14,6 +14,7 @@
 | [Cherry Studio](cherry.md) | Cherry | 桌面应用 | 国产 |
 | [Claude Code](claude_code.md) | Anthropic | 命令行 | 海外 |
 | [Codex](codex.md) | OpenAI | 命令行 / 桌面应用 | 海外 |
+| [Grok Bot](grok_bot.md) | xAI | 桌面应用 / 命令行 | 海外 |
 | [Cursor](cursor.md) | Anysphere | IDE | 海外 |
 | [VS Code（Copilot）](vscode.md) | Microsoft | IDE | 海外 |
 | [Windsurf / Devin Desktop](devin.md) | Cognition | IDE / 命令行 | 海外 |

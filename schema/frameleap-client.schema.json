@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://frameleap.local/schemas/frameleap-client-1.json",
   "title": "FrameLeap 客户端适配文件（frameleap-client/1）",
-  "description": "描述一个 AI 客户端如何接入 FrameLeap Studio（臻跃）的 MCP 服务与 Skill。见 integrations/vendor-guide.md。",
+  "description": "描述一个 AI 客户端如何接入 FrameLeap Studio（臻悦）的 MCP 服务与 Skill。见 integrations/vendor-guide.md。",
   "type": "object",
   "required": ["id", "label"],
   "additionalProperties": true,

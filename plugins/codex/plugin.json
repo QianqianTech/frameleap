@@ -1,0 +1,21 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "frameleap",
+  "version": "0.3.2",
+  "description": "调用 FrameLeap Studio（臻悦）制作视频、审片、修改和交付成片。",
+  "author": { "name": "贵阳黔前科技有限公司", "url": "https://www.qianqianai.com" },
+  "keywords": ["video", "frameleap", "臻悦", "视频", "剪辑", "出片", "发布"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "FrameLeap Studio",
+        "shortDescription": "视频制作、审片与交付",
+        "developerName": "贵阳黔前科技有限公司",
+        "category": "Creativity",
+        "defaultPrompt": "用 FrameLeap 做一期今天的 AI 早报，竖屏",
+        "logo": "./assets/frameleap.png",
+        "composerIcon": "./assets/frameleap.png"
+      }
+    }
+  }
+}

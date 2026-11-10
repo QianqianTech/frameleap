@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// frameleap-mcp：FrameLeap Studio（臻跃）的 MCP 转发程序（零依赖，Node.js ≥ 18）。
+// frameleap-mcp：FrameLeap Studio（臻悦）的 MCP 转发程序（零依赖，Node.js ≥ 18）。
 // 把只会启动本机命令（stdio）的 AI 客户端接到 FrameLeap 的远程 MCP（Streamable HTTP）：
 //   1. 设置了 FRAMELEAP_URL → 连这个地址（云端 / 私有化 / 局域网），带 FRAMELEAP_API_KEY；
 //   2. 否则找本机桌面版：~/.config/frameleap/server.json → 端口 17860–17899 → 8000；
@@ -12,7 +12,7 @@ import { homedir } from "node:os";
 import { join } from "node:path";
 import { createInterface } from "node:readline";
 
-const VERSION = "0.1.12";
+const VERSION = "0.1.16";
 const DESKTOP_PORTS = Array.from({ length: 40 }, (_, i) => 17860 + i).concat([8000]);
 const env = process.env;
 const log = (...a) => process.stderr.write("[frameleap-mcp] " + a.join(" ") + "\n");
@@ -146,7 +146,7 @@ async function check() {
 export async function main(argv = process.argv.slice(2)) {
   if (argv.includes("--version") || argv.includes("-v")) { console.log(VERSION); return 0; }
   if (argv.includes("--help") || argv.includes("-h")) {
-    console.log(`frameleap-mcp ${VERSION}：把 AI 客户端接到 FrameLeap Studio（臻跃）\n\n` +
+    console.log(`frameleap-mcp ${VERSION}：把 AI 客户端接到 FrameLeap Studio（臻悦）\n\n` +
       "  npx -y frameleap-mcp           作为 MCP 服务运行（stdio）\n  npx -y frameleap-mcp --check   诊断连接\n\n" +
       "环境变量：FRAMELEAP_URL（云端 / 私有化地址，不填则找本机桌面版）、FRAMELEAP_API_KEY（云端需要）");
     return 0;

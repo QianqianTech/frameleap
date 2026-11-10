@@ -1,4 +1,4 @@
-# FrameLeap Studio（臻跃，命令行 frameleap）对接指南 · 给 CodeNeo 及其它 AI 客户端
+# FrameLeap Studio（臻悦，命令行 frameleap）对接指南 · 给 CodeNeo 及其它 AI 客户端
 
 版本：frameleap-client/1 · frameleap-server/1（2026-11）
 读者：CodeNeo 等 AI 编程 / 智能体软件的开发者。
@@ -38,7 +38,7 @@ FrameLeap 在本机运行时（桌面版或 `frameleap serve`），收到第一�
 {
   "schema": "frameleap-server/1",
   "name": "FrameLeap Studio",
-  "version": "0.1.12",
+  "version": "0.1.16",
   "url": "http://127.0.0.1:17860",
   "mcp": { "name": "frameleap", "transport": "stdio", "command": "/…/integrations/bin/frameleap-mcp", "args": [] },
   "mcpServers": { "frameleap": { "command": "/…/integrations/bin/frameleap-mcp", "args": [] } },
@@ -54,7 +54,7 @@ FrameLeap 在本机运行时（桌面版或 `frameleap serve`），收到第一�
 建议的做法：
 
 - 启动时（或用户打开 MCP 设置页时）检查这个文件是否存在。
-- 存在：在你的 MCP 列表里提示“发现 FrameLeap Studio（臻跃），是否连接？”，同意后把 `mcpServers.frameleap` 合并进你的配置。
+- 存在：在你的 MCP 列表里提示“发现 FrameLeap Studio（臻悦），是否连接？”，同意后把 `mcpServers.frameleap` 合并进你的配置。
 - `mcp.command` 是一个启动脚本，它自己会找到 FrameLeap（开发目录或桌面版内置后端）。**FrameLeap 服务没开着时它也能启动**，此时工具调用会返回“FrameLeap 没在运行”的提示，不会崩溃。
 - 文件不存在：说明用户没装 FrameLeap，或者 FrameLeap 还没启动过，不要报错。
 
@@ -73,29 +73,38 @@ FrameLeap 在本机运行时（桌面版或 `frameleap serve`），收到第一�
 | clientInfo.name | 请填 `codeneo`（或含 `codeneo` 的名字）：FrameLeap 会显示“来自 CodeNeo”，并按它统计调用与限额 |
 | 依赖 | 无第三方依赖；启动约 1 秒 |
 
-### 3.2 工具（15 个）
+### 3.2 工具（26 个，按角色开放）
 
 带 * 的是必填参数。
 
 | 工具 | 用途 | 参数 | 只读 | 有破坏性 |
 |---|---|---|---|---|
-| `fl_create_video` | **首选入口**。传用户原话，FrameLeap 自动选模式（口播后期 / 每日资讯 / 软件演示 / AI 生图成片 / 产品图解 / 热点解读 / AI 视频）。信息不够时返回问题，带 `session_id` 继续 | request*, session_id, source, sources, platforms, approval, start | 否 | 否 |
+| `fl_create_video` | **首选入口**。传用户原话，FrameLeap 自动选模式（口播后期 / 每日资讯 / 软件演示 / AI 生图成片 / 产品图解 / 热点解读 / AI 视频）。信息不够时返回问题，带 `session_id` 继续 | request*, session_id, source, sources, platforms, approval, start, skill | 否 | 否 |
 | `fl_edit_video` | 口播素材后期（参数明确时） | source*, platforms, title, style_hint, script, bgm, remove_fillers, speaker_name, speaker_title, template, approval | 否 | 否 |
-| `fl_start_studio` | 按模式和参数直接启动智能出片 | kind, params, template, name, approval | 否 | 否 |
-| `fl_list_tasks` | 任务列表（含来源） | limit, phase, type | 是 | — |
+| `fl_start_studio` | 按模式启动智能出片或先生成确认单 | kind, params, template, name, approval, start, idempotency_key | 否 | 否 |
+| `fl_plan` | 管理确认单、每日资讯候选和提交回执 | action*, plan_id*, revision, patch, preview_id, news_ids | 视操作 | 否 |
+| `fl_storyboard` | 读取、修改和按版本提交产品图解分镜 | action*, draft_id*, revision, patch | 视操作 | 否 |
+| `fl_list_tasks` | 任务列表（含来源） | limit, phase, state, type | 是 | — |
 | `fl_get_task` | 任务详情、制作过程、待确认内容 | task_id*, events | 是 | — |
 | `fl_wait_task` | 等任务推进；默认最多 45 秒，最长 300 秒，期间发进度 | task_id*, timeout_s | 是 | — |
 | `fl_reply` | 对任务说话：“通过”、修改意见、“重试” | task_id*, text* | 否 | 否 |
 | `fl_cancel_task` | 取消任务 | task_id* | 否 | 是 |
-| `fl_get_outputs` | 成片 / 封面 / 字幕的链接；可下载到指定目录 | task_id*, download_to, videos_only | 否 | 否 |
-| `fl_catalog` | 模式、模板、音色、平台、发布账号、字幕风格 | what | 是 | — |
+| `fl_task_action` | 审片、复核、交付和续跑 | action*, task_id*, review_revision, media_revision, artifact, checks, note | 视操作 | 视操作 |
+| `fl_get_outputs` | 成片、预览、封面和字幕的清单及链接 | task_id*, include_previews, download_to, videos_only | 视操作 | 否 |
+| `fl_catalog` | 模式、模板、音色、平台、发布账号、字幕风格和能力 | what | 是 | — |
 | `fl_publish` | 发布到平台。**两步**：先返回预览和 `confirm_token`，用户同意后再带令牌调用 | task_id*, targets*, title, description, tags, at, confirm_token | 否 | 是 |
+| `fl_publications` | 查询平台接收、排期、发布和失败记录 | task_id, publication_id, status, platform, limit | 是 | — |
 | `fl_segments` | 成片分段 | task_id* | 是 | — |
 | `fl_segment_edit` | 只改选中的几段：先出方案，同意后带 `plan_id` 执行 | task_id*, segment_ids, request, mode, plan_id | 否 | 否 |
 | `fl_redub` | 只重新配音 / 换声音，不重做整条视频 | task_id*, voice, voice_name, voice_target, speed, dry_run | 否 | 否 |
-| `fl_template` | 模板：`action=list` 找模板 / `schema` 看要填什么 / `use` 按模板出片 / `create` 按规范 frameleap.template/v1 新建（严格校验）/ `export_dev_kit` 导出给三方的对接包 | action*, template_id, keyword, mode, mine, limit, inputs, name, template, dry_run, lang, save_dir, link_days | 否 | 否 |
+| `fl_template` | 查找模板、查看版本及填空、预检出片方案、从验收作品保存、新建和导出对接包 | action*, template_id, version, task_id, inputs, name, template, keyword, mode, mine, limit, dry_run, lang, save_dir, link_days | 视操作 | 否 |
+| `fl_assets` | 查询、查看和保存工作区素材 | action*, asset_ref, keyword, scope, kind, page, limit | 视操作 | 否 |
+| `fl_automation` | 栏目预览、试跑、启用、暂停和创建方案 | action*, operation, channel_id, config, topic | 视操作 | 视操作 |
 | `fl_upload` | 远程（云端）连接时上传原片：返回上传页面和 curl 命令，传完拿 `source` | action, name, upload_id | 否 | 否 |
+| `fl_skills` | 列出本工作区 AI 助手里能用的技能（名字、说明、版本）；出片时把技能名填进 `fl_create_video` 的 `skill` 参数 | keyword | 是 | — |
 | `fl_status` | 服务和 Key 检查、接入策略 | deep | 是 | — |
+| `fl_capabilities` | 查询原生操作、参数和授权要求 | group, q, operation_id, offset, limit, include_unavailable | 是 | — |
+| `fl_invoke` | 执行原生操作，确认方案和查询回执 | action, operation_id, arguments, plan_id, revision | 视操作 | 视操作 |
 
 工具的完整参数说明以 `tools/list` 的返回为准（中文描述里写了“何时用 / 不该何时用”）。
 
@@ -103,6 +112,8 @@ FrameLeap 在本机运行时（桌面版或 `frameleap serve`），收到第一�
 
 - 编号：`job:<id>`（口播作业）或 `run:<id>`（智能出片）。
 - `phase` 只有五种：`running` / `needs_input`（等用户确认草稿或粗剪）/ `done` / `failed` / `cancelled`。
+- `state`、`lifecycle` 和 `next_action` 细分了等待素材、等待额度、阶段审片和成片复核。以当前 `review_revision` 或 `media_revision` 提交对应决定。
+- `fl_plan` 的 `confirm` 绑定方案版本。结果用同一账号和工作区读取。提交状态为 `submitting` 时保留方案编号，查询回执。
 - 资源：`frameleap://task/{task_id}`。`resources/list` 返回最近 20 个任务。
 
 ### 3.4 返回格式与错误

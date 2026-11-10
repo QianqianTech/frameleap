@@ -8,7 +8,7 @@ Zed Industries · IDE · 支持 macOS、Windows、Linux
 
 ## 手动配置（本机或云端，通过转发程序）
 
-或合并进 `/root/.config/zed/settings.json` 的 `context_servers`：
+或合并进 `~/.config/zed/settings.json` 的 `context_servers`：
 
 ```json
 {

@@ -14,7 +14,7 @@ Microsoft · IDE · 支持 macOS、Windows、Linux
 code --add-mcp '{"name":"frameleap","type":"stdio","command":"npx","args":["-y","frameleap-mcp"]}'
 ```
 
-或合并进 `/root/.config/Code/User/mcp.json` 的 `servers`：
+或合并进 `~/Library/Application Support/Code/User/mcp.json` 的 `servers`：
 
 ```json
 {
